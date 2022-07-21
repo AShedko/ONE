@@ -45,7 +45,7 @@ public:
   {
     if (!ObjectPool<Node>::erase(node))
     {
-      throw std::invalid_argument{"node"};
+//      throw std::invalid_argument{"node"};
     }
   }
 
