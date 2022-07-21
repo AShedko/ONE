@@ -46,9 +46,7 @@ template <typename T> struct CanonicalNodeVisitor : public CanonicalNodeVisitorB
 #undef CANONICAL_NODE
 
   /// @brief Default fallback
-  virtual T visit(const Node *) {
-//    throw std::runtime_error{"Not implemented, yet"};
-  }
+  virtual T visit(const Node *) { throw std::runtime_error{"Not implemented, yet"}; }
 };
 
 /**
@@ -73,9 +71,7 @@ template <typename T> struct CanonicalNodeMutableVisitor : public CanonicalNodeM
 #undef CANONICAL_NODE
 
   /// @brief Default fallback
-  virtual T visit(Node *) {
-//    throw std::runtime_error{"Not implemented, yet"};
-  }
+  virtual T visit(Node *) { throw std::runtime_error{"Not implemented, yet"}; }
 };
 
 } // namespace loco

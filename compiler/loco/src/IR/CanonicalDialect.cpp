@@ -43,7 +43,7 @@ struct GraphOutputIndexQueryServiceImpl final : public loco::GraphOutputIndexQue
     {
       return push->index();
     }
-//    throw std::invalid_argument("node");
+    throw std::invalid_argument("node");
   }
 };
 

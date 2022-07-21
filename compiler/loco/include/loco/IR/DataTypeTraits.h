@@ -21,8 +21,7 @@
 
 #include <cassert>
 #include <cstdint>
-#include <string>
-//#include <stdexcept>
+#include <stdexcept>
 
 namespace loco
 {
@@ -141,7 +140,7 @@ inline uint32_t size(DataType data_type)
       return sizeof(DataTypeImpl<DataType::BOOL>::Type);
     case DataType::STRING:
       // STRING is variable length. Cannot decide size by type
-//      throw std::runtime_error("Invalid size call with STRING type");
+      throw std::runtime_error("Invalid size call with STRING type");
     default:
       // TODO Support remaining data types.
       assert(false);

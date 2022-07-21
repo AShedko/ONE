@@ -39,7 +39,7 @@ template <typename T> T CanonicalNode::accept(CanonicalNodeVisitorBase<T> *v) co
       break;
   }
 
-//  throw std::runtime_error{"NYI"};
+  throw std::runtime_error{"NYI"};
 }
 
 template <typename T> T CanonicalNode::accept(CanonicalNodeMutableVisitorBase<T> *v)
@@ -56,7 +56,7 @@ template <typename T> T CanonicalNode::accept(CanonicalNodeMutableVisitorBase<T>
       break;
   }
 
-//  throw std::runtime_error{"NYI"};
+  throw std::runtime_error{"NYI"};
 }
 
 } // namespace loco

@@ -73,7 +73,7 @@ std::string str(const loco::DataType &dtype)
       break;
   };
 
-//  throw std::invalid_argument{"dtype"};
+  throw std::invalid_argument{"dtype"};
 }
 
 std::string str(const loco::Domain &domain)
@@ -97,7 +97,7 @@ std::string str(const loco::Domain &domain)
       break;
   }
 
-//  throw std::invalid_argument{"domain"};
+  throw std::invalid_argument{"domain"};
 }
 
 std::string str(const loco::NodeShape &node_shape)
@@ -122,7 +122,7 @@ std::string str(const loco::NodeShape &node_shape)
       break;
   }
 
-//  throw std::invalid_argument{"domain"};
+  throw std::invalid_argument{"domain"};
 }
 
 // TODO Use locop::fmt<TensorShapeFormat ...>
@@ -361,7 +361,7 @@ void FormattedGraphImpl<Formatter::LinearV1>::dump(std::ostream &os) const
       // Build a node summary
       if (!node_summary_builder->build(node, node_summary))
       {
-//        throw std::runtime_error{"Fail to build a node summary"};
+        throw std::runtime_error{"Fail to build a node summary"};
       }
 
       for (uint32_t n = 0; n < node_summary.comments().count(); ++n)
