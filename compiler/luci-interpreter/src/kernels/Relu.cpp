@@ -59,7 +59,7 @@ void Relu::execute() const
       evalQuantizedS16();
       break;
     default:
-      throw std::runtime_error("Unsupported type.");
+      assert(false && "Unsupported type.");
   }
 }
 

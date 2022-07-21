@@ -55,7 +55,7 @@ void FullyConnected::configure(luci::CircleReader *circle_reader, int32_t index)
 //  }
 //  else
 //  {
-//    throw std::runtime_error("Unsupported type.");
+//    assert(false && "Unsupported type.");
 //  }
 //
 //  const Shape &input_shape = input()->shape();
@@ -122,7 +122,7 @@ void FullyConnected::execute(luci::CircleReader *circle_reader, int32_t index) c
       evalFloat(circle_reader, index);
       break;
     default:
-      throw std::runtime_error("Unsupported type.");
+      assert(false && "Unsupported type.");
   }
 }
 

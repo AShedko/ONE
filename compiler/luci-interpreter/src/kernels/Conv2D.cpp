@@ -75,7 +75,7 @@ void Conv2D::configure(luci::CircleReader *circle_reader, int32_t index)
 //  }
 //  else
 //  {
-//    throw std::runtime_error("Unsupported type.");
+//    assert(false && "Unsupported type.");
 //  }
 //  LUCI_INTERPRETER_CHECK(output()->element_type() == input()->element_type());
 
@@ -159,7 +159,7 @@ void Conv2D::configure(luci::CircleReader *circle_reader, int32_t index)
 //    case Activation::RELU_N1_TO_1:
 //      break;
 //    default:
-//      throw std::runtime_error("Unsupported fused activation");
+//      assert(false && "Unsupported fused activation");
 //  }
 }
 
@@ -174,7 +174,7 @@ void Conv2D::execute(luci::CircleReader *circle_reader, int32_t index) const
         evalFloat(circle_reader, index);
   //      break;
      // }
-    //  throw std::runtime_error("Unsupported type.");
+    //  assert(false && "Unsupported type.");
 //    case DataType::U8:
 //      if (filter()->scales().size() == 1)
 //      {
@@ -195,7 +195,7 @@ void Conv2D::execute(luci::CircleReader *circle_reader, int32_t index) const
 //      evalQuantizedS16();
 //      break;
    // default:
-   //   throw std::runtime_error("Unsupported type.");
+   //   assert(false && "Unsupported type.");
 //  }
 }
 

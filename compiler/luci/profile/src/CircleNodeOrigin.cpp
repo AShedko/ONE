@@ -83,7 +83,8 @@ public:
   template <typename T> CompositeOrigin(T origins)
   {
     if (origins.size() == 0)
-      throw std::invalid_argument("No origins provided");
+      assert(false);
+//      throw std::invalid_argument("No origins provided");
 
     for (auto &origin : origins)
     {

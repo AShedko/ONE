@@ -45,7 +45,7 @@ TfLiteFusedActivation get_tflite_activation(Activation activation)
     case luci::FusedActFunc::NONE:
       return kTfLiteActNone;
     default:
-      throw std::runtime_error("Unsupported activation type");
+      assert(false && "Unsupported activation type");
   }
 }
 } // namespace
@@ -104,11 +104,11 @@ void SVDF::configure()
            input()->element_type() == loco::DataType::FLOAT32)
   {
     // TODO:: support hybrid SVDF op
-    throw std::runtime_error("Hybrid type is not currently supported");
+    assert(false && "Hybrid type is not currently supported");
   }
   else
   {
-    throw std::runtime_error("Unsupported type.");
+    assert(false && "Unsupported type.");
   }
 
   // Check all the parameters of tensor match within themselves and match the
@@ -165,11 +165,11 @@ void SVDF::execute() const
         evalInteger();
       else
         // TODO:: support hybrid SVDF op
-        throw std::runtime_error("Hybrid type is not currently supported");
+        assert(false && "Hybrid type is not currently supported");
       break;
     }
     default:
-      throw std::runtime_error("Unsupported type");
+      assert(false && "Unsupported type");
   }
 }
 

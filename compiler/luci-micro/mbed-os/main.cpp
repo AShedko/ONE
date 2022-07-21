@@ -17,15 +17,16 @@
 #undef ARG_MAX
 #define LUCI_LOG 0
 #include <luci_interpreter/Interpreter.h>
-#include <luci_interpreter/GraphBuilderRegistry.h>
+//#include <luci_interpreter/GraphBuilderRegistry.h>
 #include <luci_interpreter/StaticMemoryManager.h>
 //#include <luci/Importer.h>
 //#include <luci/IR/Module.h>
 #include <loco/IR/DataTypeTraits.h>
 #include "gru_float_model_small.h"
-#include <cstdlib>
-#include <iostream>
-#include <luci/Log.h>
+//#include <cstdlib>
+#include <cstdio>
+//#include <iostream>
+//#include <luci/Log.h>
 #include <stm32h7xx_hal.h>
 #include "mbed_mem_trace.h"
 
@@ -34,21 +35,21 @@ void fill_in_tensor(std::vector<char> &data, loco::DataType dtype)
   switch (dtype)
   {
     case loco::DataType::FLOAT32:
-      std::cout << "loco::DataType::FLOAT32\n";
+      printf("loco::DataType::FLOAT32\n");
       for (int i = 0; i < data.size() / sizeof(float); ++i)
       {
         reinterpret_cast<float *>(data.data())[i] = 123.f;
       }
       break;
     case loco::DataType::S8:
-      std::cout << "loco::DataType::S8\n";
+      printf("loco::DataType::S8\n");
       for (int i = 0; i < data.size() / sizeof(int8_t); ++i)
       {
         reinterpret_cast<int8_t *>(data.data())[i] = 123;
       }
       break;
     case loco::DataType::U8:
-      std::cout << "loco::DataType::U8\n";
+      printf("loco::DataType::U8\n");
       for (int i = 0; i < data.size() / sizeof(uint8_t); ++i)
       {
         reinterpret_cast<uint8_t *>(data.data())[i] = 123;
@@ -74,31 +75,31 @@ void print_memory_stats()
 int main()
 {
   print_memory_stats();
-  std::cout << "\nSystemCoreClock " << SystemCoreClock << "\n";
+//std::cout << "\nSystemCoreClock " << SystemCoreClock << "\n";
   flatbuffers::Verifier verifier{reinterpret_cast<const uint8_t *>(circle_model_raw), sizeof(circle_model_raw) / sizeof(circle_model_raw[0])};
 
-  std::cout << "circle::VerifyModelBuffer\n";
+//std::cout << "circle::VerifyModelBuffer\n";
   if (!circle::VerifyModelBuffer(verifier))
   {
-    std::cout << "ERROR: Failed to verify circle\n";
+    puts("ERROR: Failed to verify circle\n");
   }
-  std::cout << "OK\n";
-  std::cout << "circle::GetModel(circle_model_raw)\n";
+//std::cout << "OK\n";
+//std::cout << "circle::GetModel(circle_model_raw)\n";
   //auto model = circle::GetModel(circle_model_raw);
-  std::cout << "luci::Importer().importModule\n";
+//std::cout << "luci::Importer().importModule\n";
   //const auto optimized_source = luci_interpreter::source_without_constant_copying();
   //auto module = luci::Importer(optimized_source.get()).importModule(model);
   //auto module = luci::Importer().importModule(model);
   luci_interpreter::Interpreter interpreter(const_cast<char *>(circle_model_raw));
  // print_memory_stats();
-  std::cout << "OK\n";
-  std::cout << "std::make_unique<luci_interpreter::Interpreter>(module.get())\n";
+//std::cout << "OK\n";
+//  std::cout << "std::make_unique<luci_interpreter::Interpreter>(module.get())\n";
 
   //auto interpreter = std::make_unique<luci_interpreter::Interpreter>(module.get());
 
   Timer t;
   print_memory_stats();
-  std::cout << "OK\n";
+  puts("OK\n");
  // auto nodes = module->graph()->nodes();
  // auto nodes_count = nodes->size();
 
@@ -135,5 +136,5 @@ int main()
     print_memory_stats();
 
 
-    std::cout << "\nFinished in " << t.read_us() << "\n";
+  printf("\nFinished in %d\n", t.read_us());
 }

@@ -100,7 +100,7 @@ void Transpose::execute(luci::CircleReader *circle_reader, int32_t index) const
 //                                       getTensorData<uint8_t>(output()));
 //      break;
     default:
-      throw std::runtime_error("Unsupported type.");
+      assert(false && "Unsupported type.");
   }
 }
 

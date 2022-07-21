@@ -276,7 +276,8 @@ bool operator==(const NodeShape &lhs, const NodeShape &rhs)
     }
 
     default:
-      throw std::runtime_error("Not supported domain for NodeShape equality");
+      break ;
+//      throw std::runtime_error("Not supported domain for NodeShape equality");
   }
   return false;
 }

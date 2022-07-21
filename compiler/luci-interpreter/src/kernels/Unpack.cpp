@@ -141,7 +141,7 @@ void Unpack::execute(luci::CircleReader *circle_reader, int32_t index) const
     case DataType::U8:
       return executeImpl<uint8_t>(circle_reader, index);
     default:
-      throw std::runtime_error("Unsupported type.");
+      assert(false && "Unsupported type.");
   }
 }
 

@@ -40,7 +40,7 @@ void ExpandDims::configure(luci::CircleReader *circle_reader, int32_t index)
 //      axis_value = static_cast<int32_t>(*getTensorData<int64_t>(axis()));
 //      break;
 //    default:
-//      throw std::runtime_error("Unsupported type.");
+//      assert(false && "Unsupported type.");
 //  }
 //
 //  const auto input_shape = input()->shape();

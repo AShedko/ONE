@@ -78,7 +78,7 @@ void Pack::configure(luci::CircleReader *circle_reader, int32_t index)
 //      t0->element_type() != DataType::U8 && t0->element_type() != DataType::S8 &&
 //      t0->element_type() != DataType::S16 && t0->element_type() != DataType::S64)
 //  {
-//    throw std::runtime_error("Unsupported type.");
+//    assert(false && "Unsupported type.");
 //  }
 //
 //  for (uint32_t i = 1; i < _inputs.size(); ++i)
@@ -149,7 +149,7 @@ void Pack::execute(luci::CircleReader *circle_reader, int32_t index) const
       evalGeneric<int64_t>(circle_reader, index);
       break;
     default:
-      throw std::runtime_error("Unsupported type.");
+      assert(false && "Unsupported type.");
   }
 }
 

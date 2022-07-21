@@ -57,7 +57,7 @@ void LocalResponseNormalization::execute() const
         getTensorData<float>(output()));
       break;
     default:
-      throw std::runtime_error("Unsupported type.");
+      assert(false && "Unsupported type.");
   }
 }
 

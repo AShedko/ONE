@@ -51,7 +51,7 @@ void UserSettingsImpl::set(const Key key, bool value)
       _ExecutionPlanGen = value;
       break;
     default:
-      throw std::runtime_error("Invalid key in boolean set");
+//      throw std::runtime_error("Invalid key in boolean set");
       break;
   }
 }
@@ -69,7 +69,7 @@ bool UserSettingsImpl::get(const Key key) const
     case Key::ExecutionPlanGen:
       return _ExecutionPlanGen;
     default:
-      throw std::runtime_error("Invalid key in boolean get");
+//      throw std::runtime_error("Invalid key in boolean get");
       break;
   }
   return false;

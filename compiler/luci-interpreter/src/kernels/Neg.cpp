@@ -44,7 +44,7 @@ void Neg::execute() const
       evalFloat();
       break;
     default:
-      throw std::runtime_error("Unsupported type.");
+      assert(false && "Unsupported type.");
   }
 }
 

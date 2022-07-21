@@ -143,8 +143,9 @@ void Interpreter::writeInputTensor(const luci::CircleInput *input_node, const vo
   Tensor *tensor = _runtime_module->getInputTensors()[input_node->index()];
   if (tensor == nullptr)
   {
-    const std::string &name = input_node->name();
-    throw std::runtime_error("Cannot find tensor for input node named \"" + name + "\".");
+    return ;
+//    const std::string &name = input_node->name();
+//    throw std::runtime_error("Cannot find tensor for input node named \"" + name + "\".");
   }
   if (data != nullptr)
     tensor->writeData(data, data_size);
@@ -162,8 +163,9 @@ void Interpreter::readOutputTensor(const luci::CircleOutput *output_node, void *
   Tensor *tensor = _runtime_module->getOutputTensors()[output_node->index()];
   if (tensor == nullptr)
   {
-    const std::string &name = output_node->name();
-    throw std::runtime_error("Cannot find tensor for output node named \"" + name + "\".");
+    return;
+//    const std::string &name = output_node->name();
+//    throw std::runtime_error("Cannot find tensor for output node named \"" + name + "\".");
   }
   if (data != nullptr)
     tensor->readData(data, data_size);

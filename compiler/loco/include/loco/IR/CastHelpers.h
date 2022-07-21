@@ -30,9 +30,9 @@ template <typename T, typename ARG> T _must_cast(ARG arg)
   auto cast_arg = dynamic_cast<T>(arg);
   if (cast_arg == nullptr)
   {
-    std::string msg = "loco::must_cast() failed to cast: ";
-    msg += typeid(T).name();
-    throw std::invalid_argument(msg.c_str());
+//    std::string msg = "loco::must_cast() failed to cast: ";
+//    msg += typeid(T).name();
+//    throw std::invalid_argument(msg.c_str());
   }
   return cast_arg;
 }

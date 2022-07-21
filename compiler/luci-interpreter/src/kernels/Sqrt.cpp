@@ -32,7 +32,7 @@ void Sqrt::configure()
 {
   if (input()->element_type() != output()->element_type())
   {
-    throw std::runtime_error("Input/output tensor data type mismatch.");
+    assert(false && "Input/output tensor data type mismatch.");
   }
   output()->resize(input()->shape());
 }
@@ -46,7 +46,7 @@ void Sqrt::execute() const
       break;
 
     default:
-      throw std::runtime_error("Unsupported type.");
+      assert(false && "Unsupported type.");
   }
 }
 

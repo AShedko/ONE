@@ -210,7 +210,8 @@ void ModuleLoader::load()
 
   //_circle_reader = std::make_unique<luci::CircleReader>();
   if (!reader->parse(model))
-    throw std::runtime_error("Error during parse");
+    assert(false);
+//    throw std::runtime_error("Error during parse");
 
  // printf("\nparse\n");
   for (uint32_t g = 0; g < reader->num_subgraph(); ++g)
@@ -218,7 +219,8 @@ void ModuleLoader::load()
     _graph_to_runtime_graph.emplace_back(_runtime_module->addGraph(_memory_manager));
 
     if (!reader->select_subgraph(g))
-      throw std::runtime_error("Error during select subgraph");
+      return ;
+//      throw std::runtime_error("Error during select subgraph");
 
     assert(!reader->tensors().null());
 
@@ -604,7 +606,8 @@ void ModuleLoader::load()
           break;
         }
         default:
-          throw std::runtime_error("not supported kernel");
+          return ;
+//          throw std::runtime_error("not supported kernel");
       }
     }
 

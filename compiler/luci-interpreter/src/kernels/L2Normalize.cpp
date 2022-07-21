@@ -58,7 +58,7 @@ void L2Normalize::execute() const
       eval<uint8_t>(input()->zero_point());
       break;
     default:
-      throw std::runtime_error("Unsupported type.");
+      assert(false && "Unsupported type.");
   }
 }
 

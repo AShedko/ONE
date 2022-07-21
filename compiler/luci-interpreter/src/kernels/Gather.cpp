@@ -42,7 +42,7 @@ void Gather::configure()
   }
   else
   {
-    throw std::runtime_error("Unsupported type.");
+    assert(false && "Unsupported type.");
   }
 
   LUCI_INTERPRETER_CHECK(indices()->element_type() == DataType::S32 ||
@@ -102,7 +102,7 @@ void Gather::execute() const
       evalFloat();
       break;
     default:
-      throw std::runtime_error("Unsupported type.");
+      assert(false && "Unsupported type.");
   }
 }
 

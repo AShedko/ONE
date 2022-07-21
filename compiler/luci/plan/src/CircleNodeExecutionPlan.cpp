@@ -69,7 +69,8 @@ void add_execution_plan(luci::CircleNode *circle_node,
 luci::CircleNodeExecutionPlan get_execution_plan(const luci::CircleNode *circle_node)
 {
   if (!has_execution_plan(circle_node))
-    throw std::runtime_error("Cannot find CircleNodeExecutionPlanAnnotation");
+    assert(false);
+//    throw std::runtime_error("Cannot find CircleNodeExecutionPlanAnnotation");
 
   return circle_node->annot<CircleExecutionPlanAnnotation>()->execution_plan();
 }

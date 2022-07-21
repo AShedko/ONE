@@ -21,7 +21,7 @@
 #include "kernels/FullyConnected.h"
 #include "kernels/Logistic.h"
 #include "../../../luci/import/include/luci/Import/CircleReader.h"
-#include <stdexcept>
+//#include <stdexcept>
 
 namespace luci_interpreter
 {
@@ -127,9 +127,9 @@ std::unique_ptr<Kernel> KernelBuilder::build(const luci::CircleNode *node)
   if (specific_builder != nullptr)
     return specific_builder(node, *this);
 
-  std::string msg = "Unsupported operator: ";
-  msg += std::to_string(static_cast<uint32_t>(node->opcode())) + " " + std::string(node->name());
-  throw std::invalid_argument(msg.c_str());
+//  std::string msg = "Unsupported operator: ";
+//  msg += std::to_string(static_cast<uint32_t>(node->opcode())) + " " + std::string(node->name());
+//  throw std::invalid_argument(msg.c_str());
 }
 
 //std::unique_ptr<Kernel> KernelBuilder::build(const circle::OperatorT &op, circle::BuiltinOperator opcode, std::vector<Tensor *> &inputs, Tensor *output)

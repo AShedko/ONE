@@ -52,7 +52,7 @@ void ShapeKernel::execute(luci::CircleReader *circle_reader, int32_t index) cons
       evalInt<int64_t>(circle_reader, index);
       break;
     default:
-      throw std::runtime_error("Unsupported type.");
+      assert(false && "Unsupported type.");
   }
 }
 

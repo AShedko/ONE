@@ -37,7 +37,7 @@ Fill::Fill(std::vector<std::pair<const Tensor *, int32_t>> &&inputs, std::vector
 //  {
 //    T data = dims_data[i];
 //    if (data < 0)
-//      throw std::runtime_error("Fill dimensions must be >= 0");
+//      assert(false && "Fill dimensions must be >= 0");
 //
 //    output_shape.dim(i) = data;
 //  }
@@ -80,7 +80,7 @@ void Fill::configure(luci::CircleReader *circle_reader, int32_t index)
 //      configureShape<int64_t>();
 //      break;
 //    default:
-//      throw std::runtime_error("Unsupported type.");
+//      assert(false && "Unsupported type.");
 //  }
 }
 
@@ -132,7 +132,7 @@ void Fill::execute(luci::CircleReader *circle_reader, int32_t index) const
                                   output_runtime_shape, getTensorData<float>(output()));
       break;
     default:
-      throw std::runtime_error("Unsupported type.");
+      assert(false && "Unsupported type.");
   }
 }
 

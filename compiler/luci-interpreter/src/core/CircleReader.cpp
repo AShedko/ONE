@@ -134,7 +134,8 @@ luci_weights_format(const circle::FullyConnectedOptionsWeightsFormat weights_for
     case circle::FullyConnectedOptionsWeightsFormat_SHUFFLED16x1FLOAT32:
       return luci::CircleFullyConnected::WeightsFormat::SHUFFLED16x1FLOAT32;
     default:
-      throw std::runtime_error("Invalid FullyConnectedOptionsWeightsFormat");
+      return luci::CircleFullyConnected::WeightsFormat::DEFAULT;
+//      throw std::runtime_error("Invalid FullyConnectedOptionsWeightsFormat");
   }
 }
 
@@ -147,7 +148,8 @@ DimensionType luci_dim_type(const circle::DimensionType dim_type)
     case circle::DimensionType_SPARSE_CSR:
       return DimensionType::SPARSE_CSR;
     default:
-      throw std::runtime_error("Invalid DimensionType");
+      return DimensionType::DENSE;
+//      throw std::runtime_error("Invalid DimensionType");
   }
 }
 
@@ -177,7 +179,8 @@ luci_sparse_index_vector(const circle::SparseIndexVectorUnion &sparse_index_vect
       return SparseIndexVector{SparseIndexVectorType::U8, const_vec_ptr};
     }
     default:
-      throw std::runtime_error("Invalid SparseIndexVector type");
+      return SparseIndexVector{SparseIndexVectorType::NONE, nullptr};
+//      throw std::runtime_error("Invalid SparseIndexVector type");
   }
 }
 
@@ -376,7 +379,8 @@ template <typename T> typename VectorWrapper<T>::value_type VectorWrapper<T>::at
   if (i >= size())
   {
     // TODO find better error message
-    throw std::range_error("Access to prohibited vector element");
+    assert(false);
+//    throw std::range_error("Access to prohibited vector element");
   }
 
   return _vector->Get(i);

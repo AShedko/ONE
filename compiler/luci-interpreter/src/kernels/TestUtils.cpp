@@ -97,7 +97,7 @@ std::vector<float> dequantizeTensorData(const Tensor &tensor)
   }
   else
   {
-    throw std::runtime_error("Unsupported type.");
+    assert(false && "Unsupported type.");
   }
 }
 

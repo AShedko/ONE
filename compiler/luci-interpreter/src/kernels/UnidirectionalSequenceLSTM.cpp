@@ -42,7 +42,7 @@ namespace luci_interpreter
         case luci::FusedActFunc::NONE:
           return kTfLiteActNone;
         default:
-          throw std::runtime_error("Unsupported activation type");
+          assert(false && "Unsupported activation type");
       }
     }
     } // namespace
@@ -315,7 +315,7 @@ namespace luci_interpreter
       //      if (is_integer)
       //      {
       //        // TODO: Support full integer case(need to support intermediate tensors)
-      //        throw std::runtime_error("Not supported yet");
+      //        assert(false && "Not supported yet");
       //      }
       //
       //      const auto input_shape = input()->shape();
@@ -464,7 +464,7 @@ namespace luci_interpreter
 //          }
         }
         default:
-          throw std::runtime_error("unsupported yet");
+          assert(false && "unsupported yet");
       }
     }
 

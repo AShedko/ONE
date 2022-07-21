@@ -18,6 +18,8 @@ set(CMAKE_INSTALL_RPATH_USE_LINK_PATH TRUE)
 #       such as `cmake-server`.
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 
+add_compile_options(-Os -z noseparate-code -fno-exceptions)
+
 set(NNAS_PROJECT_SOURCE_DIR "${CMAKE_CURRENT_LIST_DIR}/../.." CACHE
   INTERNAL "Where to find nnas top-level source directory"
 )

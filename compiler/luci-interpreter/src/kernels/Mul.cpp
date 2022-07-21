@@ -69,7 +69,7 @@ void Mul::execute(luci::CircleReader *circle_reader, int32_t index) const
 //      evalQuantizedS16();
 //      break;
     default:
-      throw std::runtime_error("Unsupported type.");
+      assert(false && "Unsupported type.");
   }
 }
 

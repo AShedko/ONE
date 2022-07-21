@@ -25,7 +25,8 @@ namespace loco
 
 void ShapeInferenceRule::infer(const Context *, const Node *, Sink *) const
 {
-  throw std::runtime_error{"API v2 is not supported"};
+
+//  throw std::runtime_error{"API v2 is not supported"};
 }
 
 } // namespace loco

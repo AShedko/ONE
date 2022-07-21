@@ -64,7 +64,7 @@ void Softmax::execute() const
       evalQuantized<uint8_t>();
       break;
     default:
-      throw std::runtime_error("Unsupported type.");
+      assert(false && "Unsupported type.");
   }
 }
 

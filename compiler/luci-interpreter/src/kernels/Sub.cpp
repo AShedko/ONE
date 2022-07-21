@@ -60,7 +60,7 @@ void Sub::execute(luci::CircleReader *circle_reader, int32_t index) const
 //      evalQuantized();
 //      break;
     default:
-      throw std::runtime_error("Unsupported type.");
+      assert(false && "Unsupported type.");
   }
 }
 

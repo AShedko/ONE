@@ -113,7 +113,7 @@ void Concatenation::execute(luci::CircleReader *circle_reader, int32_t index) co
 //      evalGeneric<int64_t>();
 //      break;
     default:
-      throw std::runtime_error("Unsupported type.");
+      assert(false && "Unsupported type.");
   }
 }
 
@@ -156,7 +156,7 @@ template <typename T> void Concatenation::evalGeneric(luci::CircleReader *circle
   tflite::ConcatenationParams params{};
   params.axis = axis;
   params.inputs_count = _inputs.size();
-  throw std::runtime_error("FIX Concta here\n");
+  assert(false && "FIX Concta here\n");
  // tflite::reference_ops::Concatenation(params, inputs_shapes, all_data.data(),
  //                                      output_runtime_shape, getTensorData<T>(output()));
 }
