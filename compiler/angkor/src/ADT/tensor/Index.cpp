@@ -18,7 +18,6 @@
 
 #include <stdexcept>
 #include <algorithm>
-#include <cassert>
 
 namespace nncc
 {
@@ -52,7 +51,8 @@ uint32_t Index::at(uint32_t axis) const { return _indices.at(axis); }
 
 Index operator+(const Index &lhs, const Index &rhs)
 {
-  assert(lhs.rank() != rhs.rank() && ("Two tensors should have same rank"));
+  if (lhs.rank() != rhs.rank())
+    throw std::runtime_error("Two tensors should have same rank");
 
   Index ret;
   ret.resize(lhs.rank());

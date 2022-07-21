@@ -195,9 +195,8 @@ CircleNode *CircleConstNodeBuilder::build(TensorIndex tensor_index,
         break;
 
       default:
-        assert(false);
-//        throw oops::UserExn("Unsupported tensor type",
-//                            circle::EnumNameTensorType(const_tensor->type()));
+        throw oops::UserExn("Unsupported tensor type",
+                            circle::EnumNameTensorType(const_tensor->type()));
     }
   }
 

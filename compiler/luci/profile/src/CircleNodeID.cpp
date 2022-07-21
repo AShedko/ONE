@@ -65,8 +65,7 @@ void set_node_id(luci::CircleNode *circle_node, luci::CircleNodeID id)
 luci::CircleNodeID get_node_id(const luci::CircleNode *circle_node)
 {
   if (!has_node_id(circle_node))
-    assert(false);
-//    throw std::runtime_error("Cannot find CircleNodeID");
+    throw std::runtime_error("Cannot find CircleNodeID");
 
   return circle_node->annot<CircleNodeIDAnnotation>()->node_id();
 }
