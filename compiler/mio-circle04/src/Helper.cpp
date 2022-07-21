@@ -17,7 +17,6 @@
 #include "mio_circle/Helper.h"
 
 #include <algorithm>
-#include <sstream>
 
 namespace mio
 {
@@ -73,9 +72,7 @@ std::string opcode_name(const ::circle::OperatorCode *opcode)
 
   if (!is_valid(opcode))
   {
-    std::ostringstream oss;
-    oss << "(invalid)";
-    return oss.str();
+    return "(invalid)";
   }
 
   if (is_custom(opcode))

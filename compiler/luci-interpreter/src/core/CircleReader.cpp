@@ -316,8 +316,8 @@ std::string CircleReader::opcode_name(const circle::Operator *op) const
   uint32_t index = op->opcode_index();
   assert(index < op_codes.size());
   const auto opcode = op_codes[index];
-
-  return mio::circle::opcode_name(opcode);
+//  mio::circle::opcode_name(opcode);
+  return "Some opcode";
 }
 
 bool CircleReader::parse(const circle::Model *model)
